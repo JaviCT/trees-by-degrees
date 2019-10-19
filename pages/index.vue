@@ -1,7 +1,7 @@
 <template>
 <v-layout style="height: 100%" align-content-center>
   <p class="title1 display-4">Trees By Degrees</p>
-  <iframe class="viewer" src="http://jeromeetienne.github.io/threex.planets/examples/earth.html" frameborder="0"/>
+  <iframe class="viewer" src="https://jeromeetienne.github.io/threex.planets/examples/earth.html" frameborder="0"/>
   <div class="selector">
     <v-autocomplete
       v-model="country"
