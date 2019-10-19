@@ -37,11 +37,30 @@ export default {
     }
   },
   mounted() {
-    L.map('map', "68fc6881bbfee411f30452ab9a919dcc", {
-      center: [51.517327, -0.120005],
-      zoom: 15
+    var key = '68fc6881bbfee411f30452ab9a919dcc'
+    var map = L.map('map', key, {
+        center: [ 51.509, -0.08 ],
+        zoom: 15
     });
-
+    var LeafIcon = L.Icon.extend({
+    options: {
+        iconSize:     [38, 95],
+        iconAnchor:   [22, 94],
+      }
+    });
+    var trees = [ 
+        new LeafIcon( {iconUrl: 'img/trees/tree1.png'} ), 
+        new LeafIcon( {iconUrl: 'img/trees/tree2.png'} ), 
+        new LeafIcon( {iconUrl: 'img/trees/tree3.png'} )
+    ];
+    var less_trees = 10;
+    for (i = 0; i < less_trees * london.length - 1; i += less_trees) {
+        let tree = london[i];
+        let lat = tree['latitude'];
+        let long = tree['longitude'];
+        let icon = trees[Math.floor(Math.random() * trees.length)]; // random tree
+        L.marker( [ lat, long ], { icon: icon } ).addTo(map);
+    };
   },
   methods: {
   }
