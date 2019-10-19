@@ -14,8 +14,10 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "gh-pages": "^2.1.1",
+    "leaflet": "^1.5.1",
     "nuxt": "^2.0.0",
-    "vue-cesium": "^1.0.4"
+    "vue-cesium": "^1.0.4",
+    "wrld.js": "^0.1.2102"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0"
