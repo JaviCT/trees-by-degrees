@@ -17,6 +17,21 @@
  * @license  MIT
  */
 
+/*! Hammer.JS - v2.0.7 - 2016-04-22
+ * http://hammerjs.github.io/
+ *
+ * Copyright (c) 2016 Jorik Tangelder;
+ * Licensed under the MIT license */
+
+/*!
+ * merge-descriptors
+ * Copyright(c) 2014 Jonathan Ong
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */
+
 /*!
  * vue-no-ssr v1.1.1
  * (c) 2018-present egoist <0x142857@gmail.com>
@@ -27,10 +42,4 @@
  * vue-client-only v2.0.0
  * (c) 2019-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
- */
-
-/**
- * @copyright 2017 Alex Regan
- * @license MIT
- * @see https://github.com/alexsasharegan/vue-functional-data-merge
  */
