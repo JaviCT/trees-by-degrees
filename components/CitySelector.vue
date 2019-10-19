@@ -25,6 +25,7 @@
 </template>
 <script>
 import cities from '~/assets/cities.json'
+import london from '~/assets/london.json'
 import config from "@/services/data.config"
 
 export default {
