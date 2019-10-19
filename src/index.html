@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script> 
     <script src="https://cdn-webgl.eegeo.com/eegeojs/api/v0.1.780/eegeo.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 
     <title>Building Gorgeous 3D maps with eegeo.js and Leaflet</title>
   
@@ -62,7 +63,21 @@
 
 	    var greenIcon = new LeafIcon({iconUrl: 'img/leaf-green.png'});
 
-    	L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
+        L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
+        
+        // $.getJSON("/data/london_small.json" + keyword
+        $.getJSON("/data/london_small.json", function(data) {
+            
+            console.log(data);
+            
+            for (i = 0; i < data.length; i++) {
+                let tree = data[i];
+                let lat = tree['latitude'];
+                let long = tree['longitude'];
+                L.marker( [ lat, long ], { icon: greenIcon } ).addTo(map);
+            };
+
+        });
 
     </script>
 </body>
