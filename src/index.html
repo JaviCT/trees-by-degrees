@@ -30,25 +30,25 @@
         var key = '68fc6881bbfee411f30452ab9a919dcc'
 
         var map = L.eeGeo.map('map', key, {
-            center: [51.517327, -0.120005],
+            center: [51.500862, -0.055618],
             zoom: 15
         });
 
-        L.marker([51.517327, -0.120005]).addTo(map);
+        // L.marker([51.517327, -0.120005]).addTo(map);
 
-        L.polygon([[51.522771, -0.125772],
-                [51.521520, -0.124192],
-                [51.520631, -0.126358],
-                [51.521963, -0.127895]]).addTo(map);
+        // L.polygon([[51.522771, -0.125772],
+        //         [51.521520, -0.124192],
+        //         [51.520631, -0.126358],
+        //         [51.521963, -0.127895]]).addTo(map);
 
-        L.polyline([[51.521788, -0.117101],
-            [51.520732, -0.116524],
-            [51.520430, -0.117641],
-            [51.519873, -0.119602],
-            [51.519034, -0.120993],
-            [51.518784, -0.121537],
-            [51.517265, -0.125088],
-            [51.516257, -0.124466]]).addTo(map);
+        // L.polyline([[51.521788, -0.117101],
+        //     [51.520732, -0.116524],
+        //     [51.520430, -0.117641],
+        //     [51.519873, -0.119602],
+        //     [51.519034, -0.120993],
+        //     [51.518784, -0.121537],
+        //     [51.517265, -0.125088],
+        //     [51.516257, -0.124466]]).addTo(map);
 
         var LeafIcon = L.Icon.extend({
             options: {
@@ -61,20 +61,21 @@
             }
         });
 
-	    var greenIcon = new LeafIcon({iconUrl: 'img/leaf-green.png'});
-
-        L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
+        var trees = [ 
+            new LeafIcon({iconUrl: 'img/trees/tree1.png'}), 
+            new LeafIcon({iconUrl: 'img/trees/tree2.png'}), 
+            new LeafIcon({iconUrl: 'img/trees/tree3.png'})
+        ];
         
         // $.getJSON("/data/london_small.json" + keyword
         $.getJSON("/data/london_small.json", function(data) {
             
-            console.log(data);
-            
-            for (i = 0; i < data.length; i++) {
+            for (i = 0; i < 50; i++) {
                 let tree = data[i];
                 let lat = tree['latitude'];
                 let long = tree['longitude'];
-                L.marker( [ lat, long ], { icon: greenIcon } ).addTo(map);
+                let icon = trees[Math.floor(Math.random() * trees.length)]; // random tree
+                L.marker( [ lat, long ], { icon: icon } ).addTo(map);
             };
 
         });
