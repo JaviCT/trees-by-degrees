@@ -30,7 +30,7 @@
         var key = '68fc6881bbfee411f30452ab9a919dcc'
 
         var map = L.eeGeo.map('map', key, {
-            center: [ 51.500862, -0.055618 ],
+            center: [ 51.509, -0.08 ],
             zoom: 15
         });
 
@@ -52,12 +52,12 @@
 
         var LeafIcon = L.Icon.extend({
             options: {
-                shadowUrl: 'img/leaf-shadow.png',
+                // shadowUrl: 'img/leaf-shadow.png',
                 iconSize:     [38, 95],
-                shadowSize:   [50, 64],
+                // shadowSize:   [50, 64],
                 iconAnchor:   [22, 94],
-                shadowAnchor: [4, 62],
-                popupAnchor:  [-3, -76]
+                // shadowAnchor: [4, 62],
+                // popupAnchor:  [-3, -76]
             }
         });
 
@@ -69,8 +69,8 @@
         
         // $.getJSON("/data/london_small.json" + keyword
         $.getJSON("/data/london_select.json", function(data) {
-            
-            for (i = 0; i < data.length; i++) {
+            var less_trees=10;
+            for (i = 0; i < less_trees* data.length -1; i+=less_trees) {
                 let tree = data[i];
                 let lat = tree['latitude'];
                 let long = tree['longitude'];
