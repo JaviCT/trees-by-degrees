@@ -2,6 +2,9 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'spa',
+  router: {
+    base: '/trees-by-degrees/'
+  },
   /*
   ** Headers of the page
   */
