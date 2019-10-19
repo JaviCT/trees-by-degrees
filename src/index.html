@@ -27,6 +27,7 @@
     <script>
 
         var key = '68fc6881bbfee411f30452ab9a919dcc'
+
         var map = L.eeGeo.map('map', key, {
             center: [51.517327, -0.120005],
             zoom: 15
@@ -39,14 +40,29 @@
                 [51.520631, -0.126358],
                 [51.521963, -0.127895]]).addTo(map);
 
-                L.polyline([[51.521788, -0.117101],
-                    [51.520732, -0.116524],
-                    [51.520430, -0.117641],
-                    [51.519873, -0.119602],
-                    [51.519034, -0.120993],
-                    [51.518784, -0.121537],
-                    [51.517265, -0.125088],
-                    [51.516257, -0.124466]]).addTo(map);
+        L.polyline([[51.521788, -0.117101],
+            [51.520732, -0.116524],
+            [51.520430, -0.117641],
+            [51.519873, -0.119602],
+            [51.519034, -0.120993],
+            [51.518784, -0.121537],
+            [51.517265, -0.125088],
+            [51.516257, -0.124466]]).addTo(map);
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+                shadowUrl: 'img/leaf-shadow.png',
+                iconSize:     [38, 95],
+                shadowSize:   [50, 64],
+                iconAnchor:   [22, 94],
+                shadowAnchor: [4, 62],
+                popupAnchor:  [-3, -76]
+            }
+        });
+
+	    var greenIcon = new LeafIcon({iconUrl: 'img/leaf-green.png'});
+
+    	L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
 
     </script>
 </body>
