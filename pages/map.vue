@@ -24,8 +24,9 @@
 </style>
 
 <script>
-import L from "wrld.js"
+import "wrld.js"
 import CitySelector from '@/components/CitySelector'
+import data from '~/assets/london.json'
 
 export default {
   components: {
@@ -38,7 +39,7 @@ export default {
   },
   mounted() {
     var key = '68fc6881bbfee411f30452ab9a919dcc'
-    var map = L.map('map', key, {
+    var map = L.Wrld.map('map', key, {
         center: [ 51.509, -0.08 ],
         zoom: 15
     });
@@ -49,17 +50,19 @@ export default {
       }
     });
     var trees = [ 
-        new LeafIcon( {iconUrl: 'img/trees/tree1.png'} ), 
-        new LeafIcon( {iconUrl: 'img/trees/tree2.png'} ), 
-        new LeafIcon( {iconUrl: 'img/trees/tree3.png'} )
+        new LeafIcon( {iconUrl: require ('@/assets/img/trees/tree1.png') } ), 
+        new LeafIcon( {iconUrl: require ('@/assets/img/trees/tree2.png') } ), 
+        new LeafIcon( {iconUrl: require ('@/assets/img/trees/tree3.png') } )
     ];
     var less_trees = 10;
-    for (i = 0; i < less_trees * london.length - 1; i += less_trees) {
-        let tree = london[i];
-        let lat = tree['latitude'];
-        let long = tree['longitude'];
+    for (var i = 0; i < less_trees * data.length - 1; i += less_trees) {
+      if (data[i]) {
+        let tree = data[i];
+        let lat = tree.latitude;
+        let long = tree.longitude;
         let icon = trees[Math.floor(Math.random() * trees.length)]; // random tree
         L.marker( [ lat, long ], { icon: icon } ).addTo(map);
+      }
     };
   },
   methods: {
